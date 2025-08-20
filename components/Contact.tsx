@@ -53,12 +53,10 @@ const Contact = () => {
 								className='text-orange-500 text-2xl'
 							/>
 							<div>
-								<h4 className='font-semibold mb-1'>
-									Our Nigeria Office
-								</h4>
+								<h4 className='font-semibold mb-1'>Nigeria</h4>
 								<p>
-									426 Damilola Folashade Street, off Titilayo Adedoyin
-									Street, Omole Phase 1, Lagos
+									426a oluwadamilola fasade str omole phase 1,
+									Lagos | +2348064879625
 								</p>
 							</div>
 						</div>
@@ -69,10 +67,11 @@ const Contact = () => {
 								className='text-orange-500 text-2xl'
 							/>
 							<div>
-								<h4 className='font-semibold mb-1'>
-									Our Nairobi Office
-								</h4>
-								<p>(+254) 72 650 5002</p>
+								<h4 className='font-semibold mb-1'>Kenya</h4>
+								<p>
+									132 Manyani East Road, Lavington Nairobi |
+									+254726505002
+								</p>
 							</div>
 						</div>
 
@@ -82,10 +81,11 @@ const Contact = () => {
 								className='text-orange-500 text-2xl'
 							/>
 							<div>
-								<h4 className='font-semibold mb-1'>
-									Our Johannesburg Office
-								</h4>
-								<p>+234 806 496 8725 (WhatsApp Only)</p>
+								<h4 className='font-semibold mb-1'>South Africa</h4>
+								<p>
+									24A Loots Road, Blairgowrie Randburg,
+									2194 | +27656946477
+								</p>
 							</div>
 						</div>
 					</div>

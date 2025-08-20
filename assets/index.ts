@@ -17,6 +17,9 @@ import b14 from "./may.png";
 import b15 from "./unifoam.jpeg";
 import b16 from "./vedura.png";
 import b17 from "./zuri.png";
+import b18 from "./elSalem.jpg";
+import b19 from "./imperia.png";
+import b20 from "./scm.png";
 import vision from "./vision.png";
 import marketing from "./marketing.jpg";
 import digimkt from "./digital.jpg";
@@ -59,6 +62,9 @@ export {
 	b15,
 	b16,
 	b17,
+	b18,
+	b19,
+	b20,
 	vision,
 	marketing,
 	digimkt,

@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import {
 	hero,
@@ -18,6 +20,9 @@ import {
 	b15,
 	b16,
 	b17,
+	b18,
+	b19,
+	b20,
 } from "@/assets";
 import Image from "next/image";
 
@@ -33,14 +38,20 @@ const Hero = () => {
 		b8,
 		b9,
 		b10,
-		b11,
+		// b11,
 		b12,
 		b13,
 		b14,
 		b15,
 		b16,
 		b17,
+		b18,
+		b19,
+		b20,
 	];
+
+	// Duplicate images for seamless scrolling
+	const duplicatedImages = [...images, ...images];
 
 	return (
 		<section className='bg-primary-blue relative overflow-hidden'>
@@ -76,26 +87,84 @@ const Hero = () => {
 					/>
 				</div>
 
-				{/* Trusted by Brands */}
-				<div className='w-full'>
-					<p className='text-gray-300 font-medium mb-10 text-lg'>
-						Trusted by leading brands across industries
-					</p>
+				{/* Trusted by Brands - Scrolling Section */}
+				<div className='w-full bg-gray-50'>
+					<motion.p
+						className='text-gray-200 font-bold text-xl md:text-2xl mb-12 tracking-wide'
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8 }}
+					>
+						<span className='bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent font-extrabold'>
+							TRUSTED BY INDUSTRY LEADERS
+						</span>
+					</motion.p>
 
-					<div className='flex flex-wrap justify-center items-center gap-8 md:gap-14'>
-						{images.map((image, index) => (
-							<div
-								key={index}
-								className='flex items-center justify-center hover:grayscale-0 transition-all duration-500'
-							>
-								<Image
-									src={image}
-									alt={`Brand partner ${index + 1}`}
-									className='h-12 md:h-16 w-auto object-contain'
-									width={120}
-									height={60}
-								/>
-							</div>
+					{/* Scrolling Container */}
+					<div className='relative overflow-hidden w-full'>
+						{/* Gradient overlays for fade effect */}
+						<div className='absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-primary-blue to-transparent z-10' />
+						<div className='absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-primary-blue to-transparent z-10' />
+
+						{/* Scrolling animation container */}
+						<motion.div
+							className='flex items-center gap-12 md:gap-16'
+							animate={{
+								x: [0, -100 * images.length],
+							}}
+							transition={{
+								x: {
+									repeat: Infinity,
+									repeatType: "loop",
+									duration: 40,
+									ease: "linear",
+								},
+							}}
+							style={{ width: `${200 * images.length}%` }}
+						>
+							{duplicatedImages.map((image, index) => (
+								<motion.div
+									key={index}
+									className='flex-shrink-0 group cursor-pointer'
+									whileHover={{
+										scale: 1.1,
+										filter: "brightness(1.2) contrast(1.1)",
+									}}
+									transition={{ duration: 0.3 }}
+								>
+									<div className='relative p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-orange-400/50 transition-all duration-500 shadow-lg hover:shadow-orange-400/25'>
+										<div className='absolute inset-0 bg-gradient-to-r from-orange-400/20 to-yellow-400/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+										<Image
+											src={image}
+											alt={`Brand partner ${
+												(index % images.length) + 1
+											}`}
+											className='relative z-10 h-12 md:h-16 w-auto object-contain transition-all duration-500'
+											width={120}
+											height={60}
+										/>
+									</div>
+								</motion.div>
+							))}
+						</motion.div>
+					</div>
+
+					{/* Optional: Pulsing accent elements */}
+					<div className='flex justify-center mt-8 gap-2'>
+						{[...Array(3)].map((_, i) => (
+							<motion.div
+								key={i}
+								className='w-2 h-2 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full'
+								animate={{
+									scale: [1, 1.5, 1],
+									opacity: [0.5, 1, 0.5],
+								}}
+								transition={{
+									duration: 2,
+									repeat: Infinity,
+									delay: i * 0.2,
+								}}
+							/>
 						))}
 					</div>
 				</div>
