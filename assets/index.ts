@@ -8,6 +8,15 @@ import b5 from "./b5.png";
 import b6 from "./b6.png";
 import b7 from "./b7.png";
 import b8 from "./b8.png";
+import b9 from "./aione.png";
+import b10 from "./bitget.png";
+import b11 from "./cas.png";
+import b12 from "./casio.png";
+import b13 from "./fsdl.jpeg";
+import b14 from "./may.png";
+import b15 from "./unifoam.jpeg";
+import b16 from "./vedura.png";
+import b17 from "./zuri.png";
 import vision from "./vision.png";
 import marketing from "./marketing.jpg";
 import digimkt from "./digital.jpg";
@@ -41,6 +50,15 @@ export {
 	b6,
 	b7,
 	b8,
+	b9,
+	b10,
+	b11,
+	b12,
+	b13,
+	b14,
+	b15,
+	b16,
+	b17,
 	vision,
 	marketing,
 	digimkt,

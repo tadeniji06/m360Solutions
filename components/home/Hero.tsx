@@ -1,9 +1,46 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { hero, b1, b2, b3, b4, b5, b6, b7, b8 } from "@/assets";
+import {
+	hero,
+	b1,
+	b2,
+	b3,
+	b4,
+	b5,
+	b6,
+	b7,
+	b8,
+	b9,
+	b10,
+	b11,
+	b12,
+	b13,
+	b14,
+	b15,
+	b16,
+	b17,
+} from "@/assets";
 import Image from "next/image";
 
 const Hero = () => {
-	const images = [b1, b2, b3, b4, b5, b6, b7, b8];
+	const images = [
+		b1,
+		b2,
+		b3,
+		b4,
+		b5,
+		b6,
+		b7,
+		b8,
+		b9,
+		b10,
+		b11,
+		b12,
+		b13,
+		b14,
+		b15,
+		b16,
+		b17,
+	];
 
 	return (
 		<section className='bg-primary-blue relative overflow-hidden'>
@@ -45,7 +82,7 @@ const Hero = () => {
 						Trusted by leading brands across industries
 					</p>
 
-					<div className='flex flex-wrap justify-center items-center gap-8 md:gap-14 bg-white'>
+					<div className='flex flex-wrap justify-center items-center gap-8 md:gap-14'>
 						{images.map((image, index) => (
 							<div
 								key={index}
