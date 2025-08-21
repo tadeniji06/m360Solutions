@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
+
+	images: {
+		remotePatterns: [{ hostname: "cdn.sanity.io" }],
+	},
 };
 
 export default nextConfig;
