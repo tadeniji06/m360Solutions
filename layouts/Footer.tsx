@@ -95,9 +95,7 @@ const Footer = () => {
 								/>
 								<div>
 									<p className='text-sm text-gray-300 leading-relaxed'>
-										426 Damilola Folashade Street, off Titilayo
-										<br />
-										Adedoyin Street, Omole phase 1 Lagos
+										426a oluwadamilola fasade str omole phase 1, Lagos
 									</p>
 								</div>
 							</div>
@@ -138,7 +136,7 @@ const Footer = () => {
 								/>
 								<div>
 									<p className='text-sm font-medium text-white'>
-										Nairobi Office
+										132 Manyani East Road, Lavington Nairobi
 									</p>
 								</div>
 							</div>
@@ -166,7 +164,7 @@ const Footer = () => {
 								/>
 								<div>
 									<p className='text-sm font-medium text-white'>
-										Johannesburg Office
+										24A Loots Road, Blairgowrie Randburg, 2194
 									</p>
 								</div>
 							</div>
@@ -180,7 +178,7 @@ const Footer = () => {
 									href='https://wa.me/2348064968725'
 									className='text-sm text-gray-300 hover:text-orange-500 transition-colors'
 								>
-									+234 806 496 8725
+									+27656946477
 								</a>
 							</div>
 						</div>
