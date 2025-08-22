@@ -254,50 +254,6 @@ const BlogPost = ({ post, relatedPosts }: BlogPostProps) => {
 								<span>{post.estimatedReadingTime} min read</span>
 							</div>
 						</div>
-
-						{/* Share Button */}
-						<div className='relative'>
-							<button
-								onClick={() => setShowShareMenu(!showShareMenu)}
-								className='flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200'
-							>
-								<ShareIcon className='w-4 h-4' />
-								Share
-							</button>
-
-							{showShareMenu && (
-								<div className='absolute right-0 mt-2 bg-white rounded-lg shadow-lg border py-2 z-10 min-w-[200px]'>
-									<button
-										onClick={shareOnTwitter}
-										className='flex items-center gap-3 px-4 py-2 hover:bg-gray-50 w-full text-left'
-									>
-										<TwitterIcon className='w-4 h-4' />
-										Share on Twitter
-									</button>
-									<button
-										onClick={shareOnFacebook}
-										className='flex items-center gap-3 px-4 py-2 hover:bg-gray-50 w-full text-left'
-									>
-										<FacebookIcon className='w-4 h-4' />
-										Share on Facebook
-									</button>
-									<button
-										onClick={shareOnLinkedIn}
-										className='flex items-center gap-3 px-4 py-2 hover:bg-gray-50 w-full text-left'
-									>
-										<LinkedinIcon className='w-4 h-4' />
-										Share on LinkedIn
-									</button>
-									<button
-										onClick={copyToClipboard}
-										className='flex items-center gap-3 px-4 py-2 hover:bg-gray-50 w-full text-left'
-									>
-										<LinkIcon className='w-4 h-4' />
-										{copySuccess ? "Copied!" : "Copy Link"}
-									</button>
-								</div>
-							)}
-						</div>
 					</div>
 				</header>
 
