@@ -190,6 +190,15 @@ const Footer = () => {
 					<p className='text-center text-sm text-gray-400'>
 						Copyright © 2024 M360 Solutions Limited
 					</p>
+					<p>
+						Developed by{" "}
+						<Link
+							target='_blank'
+							href='https://olutunmise.vercel.app'
+						>
+							princeOTF
+						</Link>
+					</p>
 				</div>
 			</div>
 		</footer>
