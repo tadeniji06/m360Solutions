@@ -22,7 +22,15 @@ interface BlogPostProps {
 }
 
 // Component to render Portable Text (Sanity's rich text format)
-const PortableText = ({ content }: { content: any[] }) => {
+const PortableText = ({ content }: { content: any[] | string | null | undefined }) => {
+	if (!content) {
+		return null;
+	}
+
+	if (typeof content === "string") {
+		return <p className='text-gray-700 leading-relaxed mb-4'>{content}</p>;
+	}
+
 	const renderBlock = (block: any, index: number) => {
 		const { _type, style, children, markDefs = [] } = block;
 
@@ -30,6 +38,10 @@ const PortableText = ({ content }: { content: any[] }) => {
 
 		const renderChildren = (children: any[]) => {
 			return children.map((child: any, childIndex: number) => {
+				if (typeof child === "string") {
+					return <span key={childIndex}>{child}</span>;
+				}
+
 				if (child._type === "span") {
 					let content = child.text;
 
@@ -62,7 +74,12 @@ const PortableText = ({ content }: { content: any[] }) => {
 
 					return <span key={childIndex}>{content}</span>;
 				}
-				return child.text;
+
+				if (typeof child?.text === "string") {
+					return <span key={childIndex}>{child.text}</span>;
+				}
+
+				return null;
 			});
 		};
 
@@ -238,9 +255,9 @@ const BlogPost = ({ post, relatedPosts }: BlogPostProps) => {
 											</span>
 										</div>
 										{post.author.bio && (
-											<p className='text-sm text-gray-500'>
-												{post.author.bio}
-											</p>
+											<div className='text-sm text-gray-500'>
+												<PortableText content={post.author.bio} />
+											</div>
 										)}
 									</div>
 								</div>
@@ -299,7 +316,7 @@ const BlogPost = ({ post, relatedPosts }: BlogPostProps) => {
 								<h3 className='text-lg font-bold text-gray-900 mb-2'>
 									About {post.author.name}
 								</h3>
-								<p className='text-gray-700'>{post.author.bio}</p>
+								<PortableText content={post.author.bio} />
 							</div>
 						</div>
 					</div>
