@@ -1,4 +1,4 @@
-import { hero } from "@/assets";
+import { hero, pr } from "@/assets";
 import Image from "next/image";
 
 import { ExternalLink, Megaphone, Briefcase } from "lucide-react";
@@ -54,7 +54,7 @@ const liveProducts = [
     name: "Academy360",
     description:
       "Academy360 is a comprehensive academy solution that helps businesses train and develop their employees efficiently.",
-    url: "https://academy360.com/",
+    url: "",
     icon: (
       <img
         src={Crmlogo.src}
@@ -95,28 +95,36 @@ export function LiveProducts() {
           {liveProducts.map((product) => (
             <div
               key={product.name}
-              className="group relative bg-white dark:bg-black rounded-3xl p-8 border border-zinc-200 dark:border-zinc-800 shadow-xl hover:shadow-2xl hover:border-red-500/50 transition-all duration-300 flex flex-col items-start"
+              className="group relative bg-white rounded-3xl p-8 border border-zinc-200 dark:border-zinc-800 shadow-xl hover:shadow-2xl hover:border-red-500/50 transition-all duration-300 flex flex-col items-start"
             >
               <div
-                className={`w-48 h-32 rounded-2xl flex items-center justify-center mb-6 shadow-md border border-zinc-100 relative bg-white overflow-hidden`}
+                className={`w-48 h-32 rounded-2xl flex items-center justify-center mb-6 relative overflow-hidden`}
               >
                 {product.icon}
               </div>
-              <h3 className="text-2xl font-bold text-black dark:text-white mb-3 flex items-center gap-2">
+              <h3 className="text-2xl font-bold text-black mb-3 flex items-center gap-2">
                 {product.name}
               </h3>
-              <p className="text-zinc-600 dark:text-zinc-400 mb-8 flex-1 leading-relaxed">
+              <p className="text-zinc-600 mb-8 flex-1 leading-relaxed">
                 {product.description}
               </p>
 
-              <a
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold transition-all shadow-md group-hover:scale-105 ${product.btnColor} ${product.btnHoverColor}`}
-              >
-                Launch Application <ExternalLink size={18} />
-              </a>
+              {product.url != "" ? (
+                <a
+                  href={product.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold transition-all shadow-md group-hover:scale-105 ${product.btnColor} ${product.btnHoverColor}`}
+                >
+                  Launch Application <ExternalLink size={18} />
+                </a>
+              ) : (
+                <button
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold transition-all shadow-md group-hover:scale-105 bg-gray-300 hover:bg-gray-300 ${product.btnHoverColor}`}
+                >
+                  Coming Soon
+                </button>
+              )}
             </div>
           ))}
         </div>
