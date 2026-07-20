@@ -1,17 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-	/* config options here */
-	// eslint: {
-	// 	ignoreDuringBuilds: true,
-	// },
+	images: {
+		unoptimized: true,
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "cdn.sanity.io",
+			},
+		],
+	},
 	typescript: {
 		ignoreBuildErrors: true,
 	},
-
-	images: {
-		unoptimized: true,
-		remotePatterns: [{ hostname: "cdn.sanity.io" }],
+	experimental: {
+		isrFlushToDisk: false,
 	},
 };
 
