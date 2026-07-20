@@ -5,13 +5,13 @@ import WhatWeDo from "@/components/home/WhatWeDo";
 import Why from "@/components/home/Why";
 
 export default function Home() {
-	return (
-		<>
-			<Hero />
-			<Vision />
-			<WhatWeDo />
-			<Why />
-			<FrameWork />
-		</>
-	);
+  return (
+    <>
+      <Hero />
+      <Vision />
+      <WhatWeDo />
+      <Why />
+      <FrameWork />
+    </>
+  );
 }

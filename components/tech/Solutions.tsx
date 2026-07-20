@@ -9,7 +9,7 @@ const liveProducts = [
     name: "DM360",
     description:
       "Supercharge your growth. Launch targeted campaigns, manage multi-channel reach, and automate your entire marketing funnel from a powerful single interface.",
-    url: "https://dm360.com/",
+    url: "",
     icon: (
       <img
         src={Dmlogo.src}
@@ -40,21 +40,6 @@ const liveProducts = [
     description:
       "Leadgen360 is a comprehensive lead generation solution that helps businesses capture and convert leads efficiently.",
     url: "https://theleadgen360.com/",
-    icon: (
-      <img
-        src={Crmlogo.src}
-        alt="CRM360 logo"
-        className="w-auto h-24 object-cover p-4"
-      />
-    ),
-    btnColor: "bg-zinc-900",
-    btnHoverColor: "hover:bg-black",
-  },
-  {
-    name: "Academy360",
-    description:
-      "Academy360 is a comprehensive academy solution that helps businesses train and develop their employees efficiently.",
-    url: "",
     icon: (
       <img
         src={Crmlogo.src}
