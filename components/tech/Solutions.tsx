@@ -39,7 +39,7 @@ const liveProducts = [
     name: "Leadgen360",
     description:
       "Leadgen360 is a comprehensive lead generation solution that helps businesses capture and convert leads efficiently.",
-    url: "https://leadgen360.com/",
+    url: "https://theleadgen360.com/",
     icon: (
       <img
         src={Crmlogo.src}
