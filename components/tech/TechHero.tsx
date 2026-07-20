@@ -20,8 +20,8 @@ const TechHero = () => {
             {/* Logo with colored squares */}
             <div className="flex items-center justify-center gap-2 mb-4">
               <div className="flex gap-1">
-                <div className="w-6 h-6 bg-green-500 rounded-sm"></div>
-                <div className="w-6 h-6 bg-red-500 rounded-sm"></div>
+                <div className="w-6 h-6 bg-orange-500 rounded-sm"></div>
+                <div className="w-6 h-6 bg-orange-500 rounded-sm"></div>
               </div>
               <div className="text-4xl md:text-5xl font-bold">TECHNOLOGY</div>
             </div>

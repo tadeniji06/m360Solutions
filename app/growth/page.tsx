@@ -132,8 +132,8 @@ const WHO = [
 
 const FAQS = [
   {
-    q: "Is my ad spend included in the $1,700?",
-    a: "Yes. 25% of the $1,700 is included in your ad spend.",
+    q: "Is my ad spend included in the total cost?",
+    a: "Yes. 25% of the total cost will be spent on ads.",
   },
   {
     q: "How many channels will we use?",
@@ -319,11 +319,9 @@ export default function Home() {
       <section className="py-24 bg-[var(--tint)]" id="package">
         <div className="max-w-[1080px] mx-auto px-6">
           <span className={eyebrow}>What&apos;s in the box</span>
-          <h2 className={sectionTitle}>
-            What&apos;s included in the $2,000/month retainer
-          </h2>
+          <h2 className={sectionTitle}>What&apos;s included in the retainer</h2>
           <p className={lede}>
-            One price. Four powerful segments. No hidden complexity.
+            One price. Three powerful segments. No hidden complexity.
           </p>
 
           <div className="mt-[52px] grid grid-cols-2 max-[760px]:grid-cols-1 border-2 border-[var(--ink)] rounded-[18px] overflow-hidden bg-white">
@@ -503,11 +501,11 @@ export default function Home() {
             <div className="text-[56px] relative font-bold mt-3.5 mb-0.5 font-[var(--font-display),_sans-serif]">
               $2,000{" "}
               <span className="text-white text-[10px] absolute right-4 bg-[var(--orange)] font-[var(--font-display) px-2 py-1 rounded-full">
-                equ. in local currency.
+                local currency equivalent.
               </span>
             </div>
             <div className="text-[var(--muted)] text-[15px] mb-[26px]">
-              per month
+              per month, based on scope of service.
             </div>
             <ul className="text-left grid gap-3 mb-[30px]">
               {[
@@ -531,9 +529,10 @@ export default function Home() {
           </div>
 
           <p className="max-w-[520px] mx-auto mt-[26px] text-[var(--muted)] text-[13.5px] text-center leading-[1.7]">
-            Client ad spend is included in the $1,700 and managed transparently.
-            Amplify services are priced per project or as tiered packages.
-            Minimum 3-month engagement to ensure setup, testing, and results.
+            25% of total cost will be dedicated to paid ads and managed
+            transparently. Amplify services are priced per project or as tiered
+            packages. Minimum 6-month engagement to ensure setup, testing, and
+            results.
           </p>
         </div>
       </section>
