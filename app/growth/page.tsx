@@ -121,11 +121,13 @@ const BENEFITS = [
 ];
 
 const WHO = [
+  "Financial Services",
   "Tech startups & SaaS companies",
+  "Retail",
   "E-commerce & digital brands",
   "SMEs with sales teams but fragmented marketing",
-  "Companies expanding across Nigeria, Kenya, Ghana & neighboring markets",
   "Real Estate",
+  "Companies expanding across Nigeria, Kenya, Ghana & neighboring markets",
 ];
 
 const FAQS = [
@@ -187,18 +189,14 @@ export default function Home() {
           </p>
           <p className="max-w-[640px] mx-auto mt-[22px] text-[var(--muted)] text-lg">
             Daily creative, social, SEO, email, website, and paid ads — plus a
-            custom CRM and optional Amplify services. All in one{" "}
-            <span className="text-[var(--ink)] font-semibold">
-              $1,700/month
-            </span>{" "}
-            package built for scaling tech and SME businesses in Africa and
-            beyond.
+            custom CRM and optional Amplify services. All in one package built
+            for scaling tech and SME businesses in Africa and beyond.
           </p>
           <div className="mt-9 flex gap-3.5 justify-center flex-wrap">
             <Link className={btnPrimary} href="/#pricing">
               Get Your Growth Plan
             </Link>
-            <Link className={btnGhost} href="/#package">
+            <Link className={btnGhost} href="/growth/#package">
               See Package Details
             </Link>
           </div>
@@ -322,7 +320,7 @@ export default function Home() {
         <div className="max-w-[1080px] mx-auto px-6">
           <span className={eyebrow}>What&apos;s in the box</span>
           <h2 className={sectionTitle}>
-            What&apos;s included in the $1,700/month retainer
+            What&apos;s included in the $2,000/month retainer
           </h2>
           <p className={lede}>
             One price. Four powerful segments. No hidden complexity.
@@ -362,14 +360,14 @@ export default function Home() {
                 Segment 02
               </span>
               <h3 className="text-[21px] mb-4 font-[var(--font-display),_sans-serif]">
-                Paid Ads Management
+                Performance Marketing
               </h3>
               <ul className="grid gap-[9px]">
                 {[
                   "Channels: Google, Meta, TikTok, LinkedIn, Snapchat",
                   "Strategy based on customer profiling & funnel stage",
                   "Continuous optimization & transparent reporting",
-                  "Client ad spend is included in the $1,700 and managed transparently",
+                  "25% of cost is dedicated to paid ads and managed transparently. You might be advised to top-up your ad spend based on the scope and objectives of your brand/campaign",
                 ].map((li) => (
                   <li
                     className="relative pl-5 text-[15px] text-[var(--muted)] before:content-['—'] before:absolute before:left-0 before:text-[var(--orange)]"
@@ -379,9 +377,6 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <span className="mt-4 inline-block bg-[#fff3ce] text-[var(--ink)] font-[var(--font-mono),_monospace] text-[12.5px] px-3 py-1.5 rounded-lg">
-                Management fee: 25% of retainer ($510/mo)
-              </span>
             </div>
 
             {/* Segment 03 */}
@@ -413,14 +408,11 @@ export default function Home() {
 
             {/* Segment 04 */}
             <div className="p-9 max-[760px]:px-6">
-              <span className="block font-[var(--font-mono),_monospace] text-[11px] tracking-[0.14em] uppercase text-[var(--orange)] mb-3">
-                Segment 04
+              <span className="inline-block font-[var(--font-mono),_monospace] text-[11px] bg-[var(--yellow)] text-[var(--ink)] px-2.5 py-1 rounded-md tracking-[0.1em] uppercase align-middle">
+                Add-on
               </span>
               <h3 className="text-[21px] mb-4 font-[var(--font-display),_sans-serif]">
                 Amplify
-                <span className="inline-block font-[var(--font-mono),_monospace] text-[11px] bg-[var(--yellow)] text-[var(--ink)] px-2.5 py-1 rounded-md tracking-[0.1em] uppercase ml-2 align-middle">
-                  Add-on
-                </span>
               </h3>
               <ul className="grid gap-[9px]">
                 {[
@@ -506,10 +498,13 @@ export default function Home() {
 
           <div className="price-card-shadow mt-[52px] mx-auto max-w-[520px] bg-white border-2 border-[var(--ink)] rounded-[20px] px-10 py-11 text-center">
             <span className="font-[var(--font-mono),_monospace] text-xs tracking-[0.14em] uppercase text-[var(--orange)]">
-              Growth Marketing-in-a-Box™
+              Pricing starts from...
             </span>
-            <div className="text-[56px] font-bold mt-3.5 mb-0.5 font-[var(--font-display),_sans-serif]">
-              $1,700
+            <div className="text-[56px] relative font-bold mt-3.5 mb-0.5 font-[var(--font-display),_sans-serif]">
+              $2,000{" "}
+              <span className="text-white text-[10px] absolute right-4 bg-[var(--orange)] font-[var(--font-display) px-2 py-1 rounded-full">
+                equ. in local currency.
+              </span>
             </div>
             <div className="text-[var(--muted)] text-[15px] mb-[26px]">
               per month
