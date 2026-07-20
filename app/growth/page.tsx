@@ -528,12 +528,17 @@ export default function Home() {
             </Link>
           </div>
 
-          <p className="max-w-[520px] mx-auto mt-[26px] text-[var(--muted)] text-[13.5px] text-center leading-[1.7]">
-            25% of total cost will be dedicated to paid ads and managed
-            transparently. Amplify services are priced per project or as tiered
-            packages. Minimum 6-month engagement to ensure setup, testing, and
-            results.
-          </p>
+          <ul className="max-w-[520px] mx-auto mt-[26px] text-[var(--muted)] text-[13.5px] leading-[1.7] list-disc pl-5">
+            {[
+              "25% of total cost will be dedicated to paid ads and managed",
+              "Amplify services are priced per project or as tiered packages.",
+              "Minimum 6-month engagement to ensure setup, testing, and results.",
+            ].map((item, index) => (
+              <li key={index} className="mb-2">
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
