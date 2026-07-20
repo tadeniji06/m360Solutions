@@ -21,8 +21,8 @@ const Footer = () => {
               <p className="mb-2">
                 <span className="font-semibold">M360 Solutions Limited</span> is
                 an integrated marketing communication company with a Digital
-                First approach, with offices in Lagos, Nairobi and Johannesburg
-                covering the whole Sub-Saharan Africa.
+                First approach, with offices in Lagos, Accra, Nairobi and
+                Johannesburg covering the whole Sub-Saharan Africa.
               </p>
               <p>
                 We are a pioneer agency with the goal of simplifying marketing
@@ -84,19 +84,6 @@ const Footer = () => {
                 >
                   info@m360solutionsgroup.com
                 </a>
-              </div>
-            </div>
-
-            {/*Accra*/}
-            <div>
-              <div className="flex items-start gap-3 mb-2">
-                <Icon
-                  icon="mdi:home"
-                  className="text-orange-500 text-xl mt-1"
-                />
-                <div className="flex items-center">
-                  <p className="text-sm font-medium text-white">Accra</p>
-                </div>
               </div>
             </div>
 
