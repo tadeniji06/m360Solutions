@@ -9,12 +9,60 @@ import Footer from "@/layouts/Footer";
 import type { Metadata } from "next";
 import ClarityScript from "@/components/Clarity";
 import AnalyticsScript from "@/components/Analytics";
+import { JsonLd } from "@/components/json_ld";
+import { OrganizationSchema } from "@/utils/schema";
+
+const BASE_URL = "https://m360solutionsgroup.com/";
 
 export const metadata: Metadata = {
-  title: "M360 Solutions Limited | Marketing 360 Solutions",
-  description: "M360 Solutions Limited | Marketing 360 Solutions",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "M360 Solutions Limited | Africa's No.1 Marketing ROI Agency",
+    template: "%s | M360 Solutions",
+  },
+  description:
+    "M360 Solutions Limited is Africa's No.1 Marketing ROI Agency, an integrated marketing communication company with a Digital First approach, serving clients across Sub-Saharan Africa.",
+  keywords: [
+    "marketing agency Africa",
+    "digital marketing Nigeria",
+    "marketing ROI agency",
+    "integrated marketing communications",
+    "M360 Solutions",
+  ],
+  authors: [{ name: "M360 Solutions Limited" }],
   icons: {
     icon: "/newLogo.png",
+  },
+  openGraph: {
+    title: "M360 Solutions Limited | Africa's No.1 Marketing ROI Agency",
+    description:
+      "Integrated marketing communication with a Digital First approach, serving clients across Sub-Saharan Africa.",
+    url: BASE_URL,
+    siteName: "M360 Solutions",
+    images: [
+      {
+        url: `${BASE_URL}_next/static/media/logo.4dd9a254.png`,
+        width: 1200,
+        height: 630,
+        alt: "M360 Solutions Limited",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "M360 Solutions Limited | Africa's No.1 Marketing ROI Agency",
+    description:
+      "Integrated marketing communication with a Digital First approach, serving clients across Sub-Saharan Africa.",
+    images: [`${BASE_URL}_next/static/media/logo.4dd9a254.png`],
+  },
+  alternates: {
+    canonical: BASE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -46,6 +94,9 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
+      <head>
+        <JsonLd data={[OrganizationSchema]} />
+      </head>
       <body className="antialiased">
         <Header />
         {children}
