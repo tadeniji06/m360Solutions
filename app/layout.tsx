@@ -95,7 +95,7 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
       <head>
-        <JsonLd data={[OrganizationSchema]} />
+        <JsonLd data={OrganizationSchema} />
       </head>
       <body className="antialiased">
         <Header />

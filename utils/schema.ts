@@ -21,40 +21,49 @@ export const OrganizationSchema = {
       slogan: "Africa's No.1 Marketing ROI Agency",
       email: "info@m360solutionsgroup.com",
       telephone: "+234-806-496-8725",
-      address: [
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "426a Oluwadamilola Fasade Street, Omole Phase 1",
+        addressLocality: "Lagos",
+        addressCountry: "NG",
+      },
+      contactPoint: [
         {
-          "@type": "PostalAddress",
-          streetAddress: "426a Oluwadamilola Fasade Street, Omole Phase 1",
-          addressLocality: "Lagos",
-          addressCountry: "NG",
+          "@type": "ContactPoint",
+          telephone: "+234-806-496-8725",
+          contactType: "customer service",
+          areaServed: "NG",
+          email: "info@m360solutionsgroup.com",
+        },
+        {
+          "@type": "ContactPoint",
+          telephone: "+254-72-650-5002",
+          contactType: "customer service",
+          areaServed: "KE",
+        },
+        {
+          "@type": "ContactPoint",
+          telephone: "+27-65-694-6477",
+          contactType: "customer service",
+          areaServed: "ZA",
         },
       ],
-      location: [
+      department: [
         {
-          "@type": "Place",
-          name: "M360 Solutions - Lagos",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "426a Oluwadamilola Fasade Street, Omole Phase 1",
-            addressLocality: "Lagos",
-            addressCountry: "NG",
-          },
-          telephone: "+234-806-496-8725",
-        },
-        {
-          "@type": "Place",
+          "@type": "Organization",
           name: "M360 Solutions - Nairobi",
+          telephone: "+254-72-650-5002",
           address: {
             "@type": "PostalAddress",
             streetAddress: "132 Manyani East Road, Lavington",
             addressLocality: "Nairobi",
             addressCountry: "KE",
           },
-          telephone: "+254-72-650-5002",
         },
         {
-          "@type": "Place",
+          "@type": "Organization",
           name: "M360 Solutions - Johannesburg",
+          telephone: "+27-65-694-6477",
           address: {
             "@type": "PostalAddress",
             streetAddress: "24A Loots Road, Blairgowrie, Randburg",
@@ -62,11 +71,9 @@ export const OrganizationSchema = {
             postalCode: "2194",
             addressCountry: "ZA",
           },
-          telephone: "+27-65-694-6477",
         },
       ],
       areaServed: { "@type": "Place", name: "Sub-Saharan Africa" },
-      sameAs: [],
     },
     {
       "@type": "WebSite",
