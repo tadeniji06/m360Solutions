@@ -103,9 +103,10 @@ export default function RootLayout({
 
 				<Script
 					src="https://app.crm360online.com/capture.js"
-					data-endpoint="https://crm-vertical-saas.onrender.com/api/v1/public/leads/inbound"
 					data-key="pk_live_68f43a6b0560a7cbf69b4c03a216914448be5ee9cae119ad"
 					data-selector="#contact-form"
+					data-tags="leads, website, tech"
+					data-debug="false"
 					strategy="afterInteractive"
 				/>
 				{children}
