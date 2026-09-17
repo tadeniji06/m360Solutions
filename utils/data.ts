@@ -139,6 +139,11 @@ export const services = [
     icon: Target,
   },
   {
+    title: "Public Relations",
+    // image: pr,
+    icon: Users,
+  },
+  {
     title: "Digital Marketing",
     // image: digimkt,
     icon: Smartphone,
@@ -158,11 +163,7 @@ export const services = [
     // image: product,
     icon: Package,
   },
-  {
-    title: "Advertising",
-    // image: ads2,
-    icon: Megaphone,
-  },
+
   {
     title: "Brand Experience Management",
     // image: brandmgt,
@@ -178,10 +179,11 @@ export const services = [
     // image: mediabuy,
     icon: Tv,
   },
+
   {
-    title: "Public Relations",
-    // image: pr,
-    icon: Users,
+    title: "Advertising",
+    // image: ads2,
+    icon: Megaphone,
   },
   {
     title: "Influencer Marketing",
