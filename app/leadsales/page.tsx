@@ -260,7 +260,7 @@ export default function LeadSalesPage() {
             {/* Steps data matches B2B and B2C exactly in content, except cost per lead */}
             {[
                 { 
-                    num: "01", title: "Setup & Training", timeline: "Days 1–7", cost: "₦500k one-time",
+                    num: "01", title: "Setup & Training", timeline: "Days 1–7", cost: "₦1M one-time",
                     bullets: ["CRM configured", "Ad copy written", "Sales scripts built", "Auto-follow-up cadences set", "2-day team training", "Launch-ready by Day 8"]
                 },
                 { 
@@ -481,22 +481,22 @@ export default function LeadSalesPage() {
                  { 
                      name: "Starter", price: "₦1.5M", type: "Total",
                      b2cLeads: "100 leads @ ₦10,000", b2bLeads: "50 leads @ ₦20,000",
-                     features: ["₦500k setup", "30-day delivery", "Full setup suite", "30-day CRM access", "Weekly KPI reports"]
+                     features: ["₦1M setup", "30-day delivery", "Full setup suite", "30-day CRM access", "Weekly KPI reports"]
                  },
                  { 
                      name: "Growth", price: "₦3M", type: "Total", highlighted: true,
                      b2cLeads: "250 leads @ ₦10,000", b2bLeads: "125 leads @ ₦20,000",
-                     features: ["₦500k setup", "60-day delivery", "Everything in Starter + priority support (24-hr)", "Bi-weekly strategy calls"]
+                     features: ["₦1M setup", "60-day delivery", "Everything in Starter + priority support (24-hr)", "Bi-weekly strategy calls"]
                  },
                  { 
                      name: "Scale", price: "₦5.5M", type: "Total",
                      b2cLeads: "500 leads @ ₦10,000", b2bLeads: "250 leads @ ₦20,000",
-                     features: ["₦500k setup", "30-day delivery", "Full setup suite", "30-day CRM access", "Weekly KPI reports"]
+                     features: ["₦1M setup", "30-day delivery", "Full setup suite", "30-day CRM access", "Weekly KPI reports"]
                  },
                  { 
                      name: "Enterprise", price: "₦10M", type: "Total",
                      b2cLeads: "950 leads @ ₦10,000", b2bLeads: "475 leads @ ₦20,000",
-                     features: ["₦500k setup", "120-day delivery", "Everything in Scale + API integration", "Dedicated team", "Monthly in-person sessions"]
+                     features: ["₦1M setup", "120-day delivery", "Everything in Scale + API integration", "Dedicated team", "Monthly in-person sessions"]
                  }
              ].map((plan, i) => (
                  <div className={`bg-white border-2 rounded-[20px] px-8 py-10 flex flex-col ${plan.highlighted ? "border-[var(--orange)] price-card-shadow" : "border-[var(--line)]"}`} key={plan.name}>
