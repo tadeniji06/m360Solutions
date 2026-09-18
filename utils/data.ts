@@ -38,6 +38,10 @@ export const headerLinks = [
     link: "/growth",
   },
   {
+    title: "Lead Sales",
+    link: "/leadsales",
+  },
+  {
     title: "Blog",
     link: "/blog",
   },
