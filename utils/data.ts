@@ -34,11 +34,7 @@ export const headerLinks = [
     link: "/tech",
   },
   {
-    title: "Growth in a box",
-    link: "/growth",
-  },
-  {
-    title: "Lead Sales",
+    title: "Lead Generation and Conversion",
     link: "/leadsales",
   },
   {
