@@ -280,8 +280,7 @@ export default function LeadSalesPage() {
                     <span className="block font-[var(--font-mono),_monospace] text-[13px] text-[var(--orange)] mb-3">
                         Step {step.num}
                     </span>
-                    <h3 className="text-[21px] mb-2 font-[var(--font-display),_sans-serif]">{step.title}</h3>
-                    <p className="text-[var(--muted)] text-[14px] font-medium mb-6 pb-6 border-b border-[var(--line)]">{step.cost}</p>
+                    <h3 className="text-[21px] mb-6 pb-6 border-b border-[var(--line)] font-[var(--font-display),_sans-serif]">{step.title}</h3>
                     
                     <ul className="grid gap-[12px]">
                         {step.bullets.map((li) => (
@@ -479,23 +478,23 @@ export default function LeadSalesPage() {
           >
              {[
                  { 
-                     name: "Starter", price: "₦1.5M", type: "Total",
+                     name: "Starter", price: "₦2M", type: "Total",
                      b2cLeads: "100 leads @ ₦10,000", b2bLeads: "50 leads @ ₦20,000",
                      features: ["₦1M setup", "30-day delivery", "Full setup suite", "30-day CRM access", "Weekly KPI reports"]
                  },
                  { 
                      name: "Growth", price: "₦3M", type: "Total", highlighted: true,
-                     b2cLeads: "250 leads @ ₦10,000", b2bLeads: "125 leads @ ₦20,000",
+                     b2cLeads: "200 leads @ ₦10,000", b2bLeads: "100 leads @ ₦20,000",
                      features: ["₦1M setup", "60-day delivery", "Everything in Starter + priority support (24-hr)", "Bi-weekly strategy calls"]
                  },
                  { 
                      name: "Scale", price: "₦5.5M", type: "Total",
-                     b2cLeads: "500 leads @ ₦10,000", b2bLeads: "250 leads @ ₦20,000",
+                     b2cLeads: "450 leads @ ₦10,000", b2bLeads: "225 leads @ ₦20,000",
                      features: ["₦1M setup", "30-day delivery", "Full setup suite", "30-day CRM access", "Weekly KPI reports"]
                  },
                  { 
                      name: "Enterprise", price: "₦10M", type: "Total",
-                     b2cLeads: "950 leads @ ₦10,000", b2bLeads: "475 leads @ ₦20,000",
+                     b2cLeads: "900 leads @ ₦10,000", b2bLeads: "450 leads @ ₦20,000",
                      features: ["₦1M setup", "120-day delivery", "Everything in Scale + API integration", "Dedicated team", "Monthly in-person sessions"]
                  }
              ].map((plan, i) => (
