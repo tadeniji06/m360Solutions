@@ -2,43 +2,27 @@
 
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
+import { sendConsultationEmail } from "@/app/actions/contact";
 
 const Contact = () => {
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const [formData, setFormData] = useState({
-		firstName: "",
-		lastName: "",
-		email: "",
-		subject: "",
-		phone: "",
-		message: "",
-	});
+	const [isSuccess, setIsSuccess] = useState(false);
+	const [error, setError] = useState("");
 
-	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-	) => {
-		const { name, value } = e.target;
-		setFormData((prevData) => ({
-			...prevData,
-			[name]: value,
-		}));
-	};
-
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		setIsSubmitting(true);
-		setTimeout(() => {
-			setIsSubmitting(false);
-			setFormData({
-				firstName: "",
-				lastName: "",
-				email: "",
-				subject: "",
-				phone: "",
-				message: "",
-			});
-		}, 2500);
-	};
+		setError("");
+		const formData = new FormData(e.currentTarget);
+		const result = await sendConsultationEmail(formData);
+		
+		if (result.success) {
+			setIsSuccess(true);
+		} else {
+			setError(result.error || "An error occurred");
+		}
+		setIsSubmitting(false);
+	}
 	return (
 		<div className="bg-white text-gray-900">
 			{/* Hero Section */}
@@ -136,71 +120,34 @@ const Contact = () => {
 
 					{/* Form */}
 					<div className="lg:col-span-2">
-						<form
-							id="contact-form"
-							className="grid grid-cols-1 md:grid-cols-2 gap-6"
-							onSubmit={handleSubmit}
-						>
-							<input
-								type="text"
-								value={formData.firstName}
-								onChange={handleChange}
-								name="firstName"
-								placeholder="First Name"
-								className="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-orange-500 outline-none"
-							/>
-							<input
-								type="text"
-								value={formData.lastName}
-								onChange={handleChange}
-								name="lastName"
-								placeholder="Last Name"
-								className="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-orange-500 outline-none"
-							/>
-							<input
-								type="email"
-								value={formData.email}
-								onChange={handleChange}
-								name="email"
-								placeholder="Email *"
-								required
-								className="p-3 border border-gray-300 rounded-md w-full md:col-span-2 focus:ring-2 focus:ring-orange-500 outline-none"
-							/>
-							<input
-								type="phone"
-								value={formData.phone}
-								onChange={handleChange}
-								name="phone"
-								placeholder="Phone *"
-								required
-								className="p-3 border border-gray-300 rounded-md w-full md:col-span-2 focus:ring-2 focus:ring-orange-500 outline-none"
-							/>
-							<input
-								type="text"
-								value={formData.subject}
-								onChange={handleChange}
-								name="subject"
-								placeholder="Subject"
-								className="p-3 border border-gray-300 rounded-md w-full md:col-span-2 focus:ring-2 focus:ring-orange-500 outline-none"
-							/>
-							<textarea
-								value={formData.message}
-								onChange={handleChange}
-								name="message"
-								placeholder="Your Message *"
-								required
-								rows={5}
-								className="p-3 border border-gray-300 rounded-md w-full md:col-span-2 focus:ring-2 focus:ring-orange-500 outline-none resize-none"
-							></textarea>
-
-							<button
-								type="submit"
-								disabled={isSubmitting}
-								className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-md shadow-md md:col-span-2 transition"
+						{isSuccess ? (
+							<div className="bg-[#eaf8f1] border border-[#a8e6cf] text-[#2d6a4f] p-8 rounded-xl text-center shadow-sm">
+								<Icon icon="mdi:check-circle" className="w-16 h-16 mx-auto mb-4 text-[#40916c]" />
+								<h4 className="text-xl font-bold mb-3">Request Sent Successfully!</h4>
+								<p className="text-base">We will get back to you shortly to schedule your consultation.</p>
+							</div>
+						) : (
+							<form
+								id="contact-form"
+								className="grid grid-cols-1 md:grid-cols-2 gap-6"
+								onSubmit={handleSubmit}
 							>
-								{isSubmitting ? "Submitting..." : "Submit"}
-							</button>
-						</form>
+								<input type="text" name="firstName" placeholder="First Name" required minLength={2} maxLength={50} className="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-orange-500 outline-none" />
+								<input type="text" name="lastName" placeholder="Last Name" required minLength={2} maxLength={50} className="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-orange-500 outline-none" />
+								<input type="tel" name="phone" placeholder="Phone Number" required minLength={10} maxLength={15} onInput={(e) => (e.currentTarget.value = e.currentTarget.value.replace(/[^0-9+]/g, ''))} className="p-3 border border-gray-300 rounded-md w-full md:col-span-2 focus:ring-2 focus:ring-orange-500 outline-none" />
+								<textarea name="message" placeholder="Message" rows={5} required minLength={10} maxLength={1000} className="p-3 border border-gray-300 rounded-md w-full md:col-span-2 focus:ring-2 focus:ring-orange-500 outline-none resize-none"></textarea>
+								
+								{error && <p className="text-red-500 text-sm md:col-span-2">{error}</p>}
+								
+								<button
+									type="submit"
+									disabled={isSubmitting}
+									className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-md shadow-md md:col-span-2 transition disabled:opacity-70"
+								>
+									{isSubmitting ? "Sending..." : "Book Strategy Call"}
+								</button>
+							</form>
+						)}
 					</div>
 				</div>
 			</div>
