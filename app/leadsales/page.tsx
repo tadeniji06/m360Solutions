@@ -202,12 +202,6 @@ export default function LeadSalesPage() {
               <Icon icon="material-symbols:arrow-forward-rounded" className="w-5 h-5" />
             </button>
           </motion.div>
-          
-          <motion.div variants={fadeIn} className="mt-10 flex flex-wrap justify-center items-center gap-4 md:gap-6 text-[14px] text-[var(--muted)] font-medium">
-             <span className="flex items-center gap-1.5"><Icon icon="mdi:phone" className="text-[var(--orange)] text-lg"/> +234-081-649-8725</span>
-             <span className="hidden md:inline border-l border-[var(--line)] h-4"></span>
-             <span className="flex items-center gap-1.5"><Icon icon="mdi:web" className="text-[var(--orange)] text-lg"/> www.m360solutionsgroup.com</span>
-          </motion.div>
         </motion.div>
       </header>
 

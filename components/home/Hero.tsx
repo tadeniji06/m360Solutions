@@ -25,8 +25,12 @@ import {
 	b20,
 } from "@/assets";
 import Image, { StaticImageData } from "next/image";
+import { useState } from "react";
+import ContactModal from "@/components/ContactModal";
 
 const Hero = () => {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
 	const images: StaticImageData[] = [
 		b1,
 		b2,
@@ -188,6 +192,7 @@ const Hero = () => {
 
 				{/* CTA Button */}
 				<motion.button
+					onClick={() => setIsModalOpen(true)}
 					className='bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold px-12 py-5 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 hover:shadow-orange-400/50 flex items-center gap-3 group relative overflow-hidden'
 					initial={{ opacity: 0, scale: 0.9 }}
 					animate={{ opacity: 1, scale: 1 }}
@@ -297,6 +302,8 @@ const Hero = () => {
 					</motion.div>
 				</motion.div>
 			</div>
+
+			<ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 		</section>
 	);
 };
