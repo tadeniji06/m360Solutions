@@ -134,6 +134,7 @@ const Contact = () => {
 							>
 								<input type="text" name="firstName" placeholder="First Name" required minLength={2} maxLength={50} className="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-orange-500 outline-none" />
 								<input type="text" name="lastName" placeholder="Last Name" required minLength={2} maxLength={50} className="p-3 border border-gray-300 rounded-md w-full focus:ring-2 focus:ring-orange-500 outline-none" />
+								<input type="email" name="email" placeholder="Email Address" required className="p-3 border border-gray-300 rounded-md w-full md:col-span-2 focus:ring-2 focus:ring-orange-500 outline-none" />
 								<input type="tel" name="phone" placeholder="Phone Number" required minLength={10} maxLength={15} onInput={(e) => (e.currentTarget.value = e.currentTarget.value.replace(/[^0-9+]/g, ''))} className="p-3 border border-gray-300 rounded-md w-full md:col-span-2 focus:ring-2 focus:ring-orange-500 outline-none" />
 								<textarea name="message" placeholder="Message" rows={5} required minLength={10} maxLength={1000} className="p-3 border border-gray-300 rounded-md w-full md:col-span-2 focus:ring-2 focus:ring-orange-500 outline-none resize-none"></textarea>
 								

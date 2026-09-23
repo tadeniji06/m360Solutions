@@ -8,9 +8,10 @@ export async function sendConsultationEmail(formData: FormData) {
     const firstName = formData.get("firstName") as string;
     const lastName = formData.get("lastName") as string;
     const phone = formData.get("phone") as string;
+    const email = formData.get("email") as string;
     const message = formData.get("message") as string;
 
-    if (!firstName || !lastName || !phone || !message) {
+    if (!firstName || !lastName || !phone || !email || !message) {
         return { success: false, error: "All fields are required" };
     }
 
@@ -21,6 +22,7 @@ export async function sendConsultationEmail(formData: FormData) {
             subject: `New Consultation Request from ${firstName} ${lastName}`,
             text: `
 Name: ${firstName} ${lastName}
+Email: ${email}
 Phone: ${phone}
 
 Message: 
