@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
+import { sendConsultationEmail } from "@/app/actions/contact";
 
 /* ---------------------------------------------------------------------
    Page-only styles mirroring /growth. 
@@ -106,6 +107,52 @@ const AVAILABILITY = [
 export default function LeadSalesPage() {
   const [activeTab, setActiveTab] = useState<"B2C" | "B2B">("B2C");
   const [pricingTab, setPricingTab] = useState<"B2C" | "B2B">("B2C");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+      e.preventDefault();
+      setIsSubmitting(true);
+      setError("");
+      const formData = new FormData(e.currentTarget);
+      const result = await sendConsultationEmail(formData);
+      
+      if (result.success) {
+          setIsSuccess(true);
+      } else {
+          setError(result.error || "An error occurred");
+      }
+      setIsSubmitting(false);
+  }
+
+  const ContactForm = () => (
+      <>
+          {isSuccess ? (
+              <div className="bg-[#eaf8f1] border border-[#a8e6cf] text-[#2d6a4f] p-6 rounded-xl text-center">
+                  <Icon icon="mdi:check-circle" className="w-12 h-12 mx-auto mb-2 text-[#40916c]" />
+                  <h4 className="text-lg font-bold mb-2">Request Sent Successfully!</h4>
+                  <p className="text-sm">We will get back to you shortly to schedule your consultation.</p>
+              </div>
+          ) : (
+              <form onSubmit={onSubmit} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                      <input type="text" name="firstName" placeholder="First Name" required minLength={2} maxLength={50} className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--paper)] focus:outline-none focus:border-[var(--orange)] transition-colors text-[var(--ink)]" />
+                      <input type="text" name="lastName" placeholder="Last Name" required minLength={2} maxLength={50} className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--paper)] focus:outline-none focus:border-[var(--orange)] transition-colors text-[var(--ink)]" />
+                  </div>
+                  <input type="tel" name="phone" placeholder="Phone Number" required minLength={10} maxLength={15} onInput={(e) => (e.currentTarget.value = e.currentTarget.value.replace(/[^0-9+]/g, ''))} className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--paper)] focus:outline-none focus:border-[var(--orange)] transition-colors text-[var(--ink)]" />
+                  <textarea name="message" placeholder="Message" rows={3} required minLength={10} maxLength={1000} className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--paper)] focus:outline-none focus:border-[var(--orange)] transition-colors resize-none text-[var(--ink)]"></textarea>
+                  
+                  {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+                  
+                  <button type="submit" disabled={isSubmitting} className={`${btnPrimary} w-full py-4 text-lg disabled:opacity-70`}>
+                      {isSubmitting ? "Sending..." : "Book Strategy Call Now"}
+                  </button>
+              </form>
+          )}
+      </>
+  );
 
   // Animation variants
   const fadeIn = {
@@ -150,10 +197,10 @@ export default function LeadSalesPage() {
           </motion.p>
           
           <motion.div variants={fadeIn} className="mt-10 flex gap-3.5 justify-center flex-wrap">
-            <Link className={btnPrimary} href="#cta">
+            <button className={btnPrimary} onClick={() => setIsModalOpen(true)}>
               Book Your Free Strategy Call
               <Icon icon="material-symbols:arrow-forward-rounded" className="w-5 h-5" />
-            </Link>
+            </button>
           </motion.div>
           
           <motion.div variants={fadeIn} className="mt-10 flex flex-wrap justify-center items-center gap-4 md:gap-6 text-[14px] text-[var(--muted)] font-medium">
@@ -522,9 +569,9 @@ export default function LeadSalesPage() {
                         ))}
                     </ul>
                     
-                    <Link className={plan.highlighted ? btnPrimary : btnGhost} href="#cta">
+                    <button className={plan.highlighted ? btnPrimary : btnGhost} onClick={() => setIsModalOpen(true)}>
                         Select {plan.name}
-                    </Link>
+                    </button>
                  </div>
              ))}
           </motion.div>
@@ -567,9 +614,7 @@ export default function LeadSalesPage() {
                     </ul>
                     <p className="text-[var(--orange)] font-bold text-sm text-center mb-6 uppercase tracking-wider">No obligation. No pressure. Just actionable insights.</p>
                     
-                    <button className={`${btnPrimary} w-full py-4 text-lg`}>
-                        Book Strategy Call Now
-                    </button>
+                    <ContactForm />
                     
                     <div className="mt-8 flex flex-col items-center gap-2 text-sm text-[var(--muted)] font-medium">
                         <span className="flex items-center gap-2"><Icon icon="mdi:phone" className="text-[var(--orange)] text-lg"/> + 234-081-649-8725</span>
@@ -579,6 +624,21 @@ export default function LeadSalesPage() {
             </div>
         </div>
       </section>
+
+      {/* MODAL */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white rounded-[20px] p-8 md:p-10 w-full max-w-lg relative shadow-2xl text-[var(--ink)]">
+                <button onClick={() => setIsModalOpen(false)} className="absolute top-5 right-5 text-gray-400 hover:text-gray-800 transition-colors">
+                    <Icon icon="mdi:close" className="w-7 h-7" />
+                </button>
+                <h3 className="text-2xl font-bold mb-2 font-[var(--font-display),_sans-serif]">Book Your Free Strategy Call</h3>
+                <p className="text-[var(--muted)] text-sm mb-6 pb-6 border-b border-[var(--line)]">Fill out the form below and we'll get back to you shortly to schedule your consultation.</p>
+                
+                <ContactForm />
+            </motion.div>
+        </div>
+      )}
     </div>
   );
 }
