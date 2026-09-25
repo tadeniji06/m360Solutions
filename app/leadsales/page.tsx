@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import { sendConsultationEmail } from "@/app/actions/contact";
 
 /* ---------------------------------------------------------------------
-   Page-only styles mirroring /growth. 
+   Page-only styles mirroring /growth.
 --------------------------------------------------------------------- */
 const PageStyles = () => (
   <style>{`
@@ -118,7 +118,7 @@ export default function LeadSalesPage() {
       setError("");
       const formData = new FormData(e.currentTarget);
       const result = await sendConsultationEmail(formData);
-      
+
       if (result.success) {
           setIsSuccess(true);
       } else {
@@ -136,7 +136,7 @@ export default function LeadSalesPage() {
                   <p className="text-sm">We will get back to you shortly to schedule your consultation.</p>
               </div>
           ) : (
-              <form onSubmit={onSubmit} className="space-y-4">
+              <form onSubmit={onSubmit} id="contact-form" className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                       <input type="text" name="firstName" placeholder="First Name" required minLength={2} maxLength={50} className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--paper)] focus:outline-none focus:border-[var(--orange)] transition-colors text-[var(--ink)]" />
                       <input type="text" name="lastName" placeholder="Last Name" required minLength={2} maxLength={50} className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--paper)] focus:outline-none focus:border-[var(--orange)] transition-colors text-[var(--ink)]" />
@@ -144,9 +144,9 @@ export default function LeadSalesPage() {
                   <input type="email" name="email" placeholder="Email Address" required className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--paper)] focus:outline-none focus:border-[var(--orange)] transition-colors text-[var(--ink)]" />
                   <input type="tel" name="phone" placeholder="Phone Number" required minLength={10} maxLength={15} onInput={(e) => (e.currentTarget.value = e.currentTarget.value.replace(/[^0-9+]/g, ''))} className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--paper)] focus:outline-none focus:border-[var(--orange)] transition-colors text-[var(--ink)]" />
                   <textarea name="message" placeholder="Message" rows={3} required minLength={10} maxLength={1000} className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--paper)] focus:outline-none focus:border-[var(--orange)] transition-colors resize-none text-[var(--ink)]"></textarea>
-                  
+
                   {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
-                  
+
                   <button type="submit" disabled={isSubmitting} className={`${btnPrimary} w-full py-4 text-lg disabled:opacity-70`}>
                       {isSubmitting ? "Sending..." : "Book Strategy Call Now"}
                   </button>
@@ -174,7 +174,7 @@ export default function LeadSalesPage() {
 
       {/* HERO */}
       <header className="hero-grid relative overflow-hidden pt-[120px] pb-[88px] text-center bg-[var(--tint)]" id="top">
-        <motion.div 
+        <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
@@ -191,12 +191,12 @@ export default function LeadSalesPage() {
             <br />
             Every Month
           </motion.h1>
-          
+
           <motion.p variants={fadeIn} className="font-semibold text-[clamp(19px,2.4vw,25px)] text-[var(--muted)] mt-[26px] font-[var(--font-display),_sans-serif] max-w-[720px] mx-auto">
             <strong className="text-[var(--ink)]">Budget Verified. Timeline Confirmed. Decision-Makers Only.</strong><br/>
             A complete revenue system — not just leads.
           </motion.p>
-          
+
           <motion.div variants={fadeIn} className="mt-10 flex gap-3.5 justify-center flex-wrap">
             <button className={btnPrimary} onClick={() => setIsModalOpen(true)}>
               Book Your Free Strategy Call
@@ -208,7 +208,7 @@ export default function LeadSalesPage() {
 
       {/* PROBLEM */}
       <section className="py-24 border-y border-[var(--line)]">
-        <motion.div 
+        <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
             className="max-w-[1080px] mx-auto px-6"
@@ -218,7 +218,7 @@ export default function LeadSalesPage() {
           <motion.p variants={fadeIn} className={lede}>
             You're spending heavily on marketing. But your results look like this — and you're not alone. This is the <strong className="text-[var(--ink)]">#1 frustration</strong> we hear from business owners across Nigeria.
           </motion.p>
-          
+
           <motion.div variants={fadeIn} className="mt-12 grid grid-cols-2 max-[760px]:grid-cols-1 gap-4 max-w-[900px]">
             {PAIN_POINTS.map((item, i) => (
               <div className="flex gap-[18px] items-start p-5 bg-white border border-[var(--line)] rounded-[14px]" key={item.title}>
@@ -230,7 +230,7 @@ export default function LeadSalesPage() {
               </div>
             ))}
           </motion.div>
-          
+
           <motion.div variants={fadeIn} className="mt-12 bg-[#fff3ce] border border-[#fcc935] rounded-2xl p-6 md:p-8 max-w-[900px] flex items-center gap-5">
             <span className="text-3xl flex-none">⚠️</span>
             <p className="text-[clamp(17px,2vw,19px)] text-[var(--ink)] font-medium leading-relaxed">
@@ -242,7 +242,7 @@ export default function LeadSalesPage() {
 
       {/* SOLUTION */}
       <section className="py-24 bg-[var(--tint)]">
-        <motion.div 
+        <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
             className="max-w-[1080px] mx-auto px-6"
@@ -254,7 +254,7 @@ export default function LeadSalesPage() {
           <motion.p variants={fadeIn} className={lede}>
             We don't just send you leads. We deliver a complete revenue system — and we're <strong className="text-[var(--ink)]">40–60% cheaper</strong> than agencies charging ₦10,000–₦15,000/lead because we've systematized delivery.
           </motion.p>
-          
+
           <motion.div variants={fadeIn} className="mt-12 grid grid-cols-3 max-[860px]:grid-cols-2 max-[560px]:grid-cols-1 gap-4">
             {SOLUTIONS.map(({ tag, title, label }) => (
               <div className="bg-white border border-[var(--line)] rounded-[14px] px-6 py-[26px] hover:border-[var(--orange)] transition-colors duration-300" key={tag}>
@@ -275,15 +275,15 @@ export default function LeadSalesPage() {
           <div className="text-center mb-16">
             <span className={`${eyebrow} text-center block`}>Process</span>
             <h2 className={`${sectionTitle} text-center mx-auto mb-10`}>How It Works</h2>
-            
+
             <div className="inline-flex bg-[var(--tint)] rounded-full p-1 border border-[var(--line)]">
-                <button 
+                <button
                     onClick={() => setActiveTab("B2C")}
                     className={`px-8 py-2.5 rounded-full font-semibold text-[15px] transition-all ${activeTab === "B2C" ? "bg-white text-[var(--ink)] shadow-sm border border-[var(--line)]" : "text-[var(--muted)] hover:text-[var(--ink)]"}`}
                 >
                     B2C Operations
                 </button>
-                <button 
+                <button
                     onClick={() => setActiveTab("B2B")}
                     className={`px-8 py-2.5 rounded-full font-semibold text-[15px] transition-all ${activeTab === "B2B" ? "bg-white text-[var(--ink)] shadow-sm border border-[var(--line)]" : "text-[var(--muted)] hover:text-[var(--ink)]"}`}
                 >
@@ -292,7 +292,7 @@ export default function LeadSalesPage() {
             </div>
           </div>
 
-          <motion.div 
+          <motion.div
             key={activeTab}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -301,16 +301,16 @@ export default function LeadSalesPage() {
           >
             {/* Steps data matches B2B and B2C exactly in content, except cost per lead */}
             {[
-                { 
+                {
                     num: "01", title: "Setup & Training", timeline: "Days 1–7", cost: "₦1M one-time",
                     bullets: ["CRM configured", "Ad copy written", "Sales scripts built", "Auto-follow-up cadences set", "2-day team training", "Launch-ready by Day 8"]
                 },
-                { 
-                    num: "02", title: "Lead Delivery", timeline: "Days 8–30", 
+                {
+                    num: "02", title: "Lead Delivery", timeline: "Days 8–30",
                     cost: activeTab === "B2C" ? "₦10,000/lead (min 200)" : "₦20,000/lead (min 200)",
                     bullets: ["Meta/Google ads targeting verified buyers", "Pre-qualification at capture", "Leads delivered to CRM in real-time", "Automated follow-up for 7–14 days (no lead goes cold)", "Weekly KPI reports"]
                 },
-                { 
+                {
                     num: "03", title: "Conversion & Revenue", timeline: "Days 15–30+", cost: "Continuous Focus",
                     bullets: ["Your sales team contact leads within 5 minutes (9x higher conversion)", "Track every lead in CRM (lead → qualified → proposal → closed)", "Weekly KPI reports (conversion rates, ROAS, revenue generated)", "Monthly business review"]
                 }
@@ -323,7 +323,7 @@ export default function LeadSalesPage() {
                         Step {step.num}
                     </span>
                     <h3 className="text-[21px] mb-6 pb-6 border-b border-[var(--line)] font-[var(--font-display),_sans-serif]">{step.title}</h3>
-                    
+
                     <ul className="grid gap-[12px]">
                         {step.bullets.map((li) => (
                             <li className="flex items-start gap-2.5 text-[15px] text-[var(--ink)]" key={li}>
@@ -342,7 +342,7 @@ export default function LeadSalesPage() {
                   <div className="grid grid-cols-4 max-[760px]:grid-cols-2 max-[480px]:grid-cols-1 gap-6 relative">
                       {/* Line connector */}
                       <div className="absolute top-6 left-0 right-0 h-[2px] bg-[var(--line)] hidden md:block z-0"></div>
-                      
+
                       {[
                           { d: "Days 7–10", desc: "First consultations/demos booked" },
                           { d: "Days 14–21", desc: "First proposals sent" },
@@ -374,7 +374,7 @@ export default function LeadSalesPage() {
                     <h2 className="text-[clamp(28px,4vw,40px)] font-bold max-w-[640px] font-[var(--font-display),_sans-serif] mb-6">
                         Real Results from Nigerian Businesses
                     </h2>
-                    
+
                     <div className="grid grid-cols-2 gap-8 mb-12">
                         <div>
                             <div className="text-4xl font-extrabold text-white mb-1">103,240+</div>
@@ -496,13 +496,13 @@ export default function LeadSalesPage() {
 
           <div className="text-center mb-12">
             <div className="inline-flex bg-white rounded-full p-1 border border-[var(--line)] shadow-sm">
-                <button 
+                <button
                     onClick={() => setPricingTab("B2C")}
                     className={`px-8 py-2.5 rounded-full font-semibold text-[15px] transition-all ${pricingTab === "B2C" ? "bg-[var(--ink)] text-white shadow-sm" : "text-[var(--muted)] hover:text-[var(--ink)]"}`}
                 >
                     B2C Pricing
                 </button>
-                <button 
+                <button
                     onClick={() => setPricingTab("B2B")}
                     className={`px-8 py-2.5 rounded-full font-semibold text-[15px] transition-all ${pricingTab === "B2B" ? "bg-[var(--ink)] text-white shadow-sm" : "text-[var(--muted)] hover:text-[var(--ink)]"}`}
                 >
@@ -511,7 +511,7 @@ export default function LeadSalesPage() {
             </div>
           </div>
 
-          <motion.div 
+          <motion.div
             key={pricingTab}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -519,22 +519,22 @@ export default function LeadSalesPage() {
             className="grid grid-cols-2 max-[860px]:grid-cols-1 gap-8 max-w-[900px] mx-auto"
           >
              {[
-                 { 
+                 {
                      name: "Starter", price: "₦2M", type: "Total",
                      b2cLeads: "100 leads @ ₦10,000", b2bLeads: "50 leads @ ₦20,000",
                      features: ["₦1M setup", "30-day delivery", "Full setup suite", "30-day CRM access", "Weekly KPI reports"]
                  },
-                 { 
+                 {
                      name: "Growth", price: "₦3M", type: "Total", highlighted: true,
                      b2cLeads: "200 leads @ ₦10,000", b2bLeads: "100 leads @ ₦20,000",
                      features: ["₦1M setup", "60-day delivery", "Everything in Starter + priority support (24-hr)", "Bi-weekly strategy calls"]
                  },
-                 { 
+                 {
                      name: "Scale", price: "₦5.5M", type: "Total",
                      b2cLeads: "450 leads @ ₦10,000", b2bLeads: "225 leads @ ₦20,000",
                      features: ["₦1M setup", "30-day delivery", "Full setup suite", "30-day CRM access", "Weekly KPI reports"]
                  },
-                 { 
+                 {
                      name: "Enterprise", price: "₦10M", type: "Total",
                      b2cLeads: "900 leads @ ₦10,000", b2bLeads: "450 leads @ ₦20,000",
                      features: ["₦1M setup", "120-day delivery", "Everything in Scale + API integration", "Dedicated team", "Monthly in-person sessions"]
@@ -550,7 +550,7 @@ export default function LeadSalesPage() {
                     <div className="text-[var(--muted)] text-[15px] mb-8 pb-8 border-b border-[var(--line)]">
                         {plan.type} Investment
                     </div>
-                    
+
                     <ul className="text-left grid gap-3 mb-[30px] flex-grow">
                         <li className="flex gap-3 items-start text-[15.5px] font-bold text-[var(--ink)]">
                             <span className="flex-none w-[22px] h-[22px] rounded-full bg-[var(--yellow)] text-[var(--ink)] grid place-items-center text-xs font-bold mt-0.5">✓</span>
@@ -563,7 +563,7 @@ export default function LeadSalesPage() {
                             </li>
                         ))}
                     </ul>
-                    
+
                     <button className={plan.highlighted ? btnPrimary : btnGhost} onClick={() => setIsModalOpen(true)}>
                         Select {plan.name}
                     </button>
@@ -608,9 +608,9 @@ export default function LeadSalesPage() {
                         ))}
                     </ul>
                     <p className="text-[var(--orange)] font-bold text-sm text-center mb-6 uppercase tracking-wider">No obligation. No pressure. Just actionable insights.</p>
-                    
+
                     <ContactForm />
-                    
+
                     <div className="mt-8 flex flex-col items-center gap-2 text-sm text-[var(--muted)] font-medium">
                         <span className="flex items-center gap-2"><Icon icon="mdi:phone" className="text-[var(--orange)] text-lg"/> + 234-081-649-8725</span>
                         <span className="flex items-center gap-2"><Icon icon="mdi:email" className="text-[var(--orange)] text-lg"/> damilola@m360solutionsgroup.com</span>
@@ -629,7 +629,7 @@ export default function LeadSalesPage() {
                 </button>
                 <h3 className="text-2xl font-bold mb-2 font-[var(--font-display),_sans-serif]">Book Your Free Strategy Call</h3>
                 <p className="text-[var(--muted)] text-sm mb-6 pb-6 border-b border-[var(--line)]">Fill out the form below and we'll get back to you shortly to schedule your consultation.</p>
-                
+
                 <ContactForm />
             </motion.div>
         </div>
