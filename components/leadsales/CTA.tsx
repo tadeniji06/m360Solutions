@@ -69,16 +69,16 @@ const CTA = () => {
                         </p>
 
                         <div className="space-y-4 text-gray-300 font-medium bg-slate-800 p-6 rounded-2xl border border-slate-700">
-                            <div className="flex items-center gap-3">
+                            {/* <div className="flex items-center gap-3">
                                 <Icon icon="mdi:phone" className="w-5 h-5 text-[#ff5100]" />
                                 <span>+234-081-649-8725</span>
-                            </div>
-                            <div className="flex items-center gap-3">
+                            </div> */}
+                            {/* <div className="flex items-center gap-3">
                                 <Icon icon="mdi:email" className="w-5 h-5 text-[#ff5100]" />
                                 <a href="mailto:damilola@m360solutionsgroup.com" className="hover:text-white transition-colors">
                                     damilola@m360solutionsgroup.com
                                 </a>
-                            </div>
+                            </div> */}
                             <div className="flex items-center gap-3">
                                 <Icon icon="mdi:whatsapp" className="w-5 h-5 text-[#ff5100]" />
                                 <span>WhatsApp: + 234-081-649-8725</span>

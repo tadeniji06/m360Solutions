@@ -611,10 +611,10 @@ export default function LeadSalesPage() {
 
                     <ContactForm />
 
-                    <div className="mt-8 flex flex-col items-center gap-2 text-sm text-[var(--muted)] font-medium">
+                    {/* <div className="mt-8 flex flex-col items-center gap-2 text-sm text-[var(--muted)] font-medium">
                         <span className="flex items-center gap-2"><Icon icon="mdi:phone" className="text-[var(--orange)] text-lg"/> + 234-081-649-8725</span>
                         <span className="flex items-center gap-2"><Icon icon="mdi:email" className="text-[var(--orange)] text-lg"/> damilola@m360solutionsgroup.com</span>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
