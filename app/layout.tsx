@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import Script from "next/script";
 import Footer from "@/layouts/Footer";
+import CookieBanner from "@/components/CookieBanner";
 import type { Metadata } from "next";
 import ClarityScript from "@/components/Clarity";
 import AnalyticsScript from "@/components/Analytics";
@@ -111,6 +112,7 @@ export default function RootLayout({
         />
         {children}
         <Footer />
+        <CookieBanner />
         <ClarityScript />
         <AnalyticsScript />
       </body>

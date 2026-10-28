@@ -46,6 +46,14 @@ const Footer = () => {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link
+                    href="/privacy-policy"
+                    className="text-gray-300 hover:text-orange-500 transition-colors duration-200 text-sm"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -139,17 +147,30 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-700 pt-6">
-          <p className="text-center text-sm text-gray-400">
-            Copyright © 2024 M360 Solutions Limited
+        {/* Copyright & Legal Bar */}
+        <div className="border-t border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+          <p className="text-center sm:text-left">
+            Copyright © {new Date().getFullYear()} M360 Solutions Limited. All rights reserved.
           </p>
-          <p>
-            Developed by{" "}
-            <Link target="_blank" href="https://tech360online.com">
-              Btech360
+          <div className="flex items-center gap-4">
+            <Link
+              href="/privacy-policy"
+              className="text-gray-300 hover:text-orange-500 transition-colors"
+            >
+              Privacy Policy
             </Link>
-          </p>
+            <span className="text-gray-600">|</span>
+            <p>
+              Developed by{" "}
+              <Link
+                target="_blank"
+                href="https://tech360online.com"
+                className="hover:text-orange-500 transition-colors"
+              >
+                Btech360
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
